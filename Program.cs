@@ -4,6 +4,8 @@ namespace Pretpark
 {
     class Program
     {
+        public static int counter = 0;
+
         static void Main(string[] args)
         {
             TcpListener server = new TcpListener(new System.Net.IPAddress(new byte[] { 127,0,0,1 }), 5000);
@@ -32,8 +34,19 @@ namespace Pretpark
                 //URL
                 string page = "";
                 Console.WriteLine(url);
-                if(url.Contains("/")){
-                    page = File.ReadAllText("Home.html");
+                if(url.Equals("/")){
+                    page = File.ReadAllText("HTML\\Home.html");
+                }else if (url.Contains("/Contact")){
+                    page = File.ReadAllText("HTML\\Contact.html");
+                }else if (url.Contains("/Teller")){
+                    page = "<h1>" + counter + "</h1>";
+                    counter++;
+                }else if (url.Contains("/add")){
+                    page = File.ReadAllText("HTML\\add.html");
+                }else if (url.Contains("/mijnteller")){
+                    page = File.ReadAllText("HTML\\mijnteller.html");
+                }else{
+                    page = File.ReadAllText("HTML\\404.html");
                 }
                 Console.WriteLine(page);
                 connectie.Send(System.Text.Encoding.ASCII.GetBytes("HTTP/1.0 200 OK\r\nContent-Type: text/html\r\nContent-Length: 11\r\n\r\n"+page));            
