@@ -8,7 +8,7 @@ namespace Pretpark
         {
             TcpListener server = new TcpListener(new System.Net.IPAddress(new byte[] { 127,0,0,1 }), 5000);
             server.Start();
-            while (true){
+            while(true){
                 using Socket connectie = server.AcceptSocket();
                 using Stream request = new NetworkStream(connectie);
                 using StreamReader requestLezer = new StreamReader(request);
@@ -29,7 +29,14 @@ namespace Pretpark
                     char[] bytes = new char[(int)contentLength];
                     requestLezer.Read(bytes, 0, (int)contentLength);
                 }
-                connectie.Send(System.Text.Encoding.ASCII.GetBytes("HTTP/1.0 200 OK\r\nContent-Type: text/plain\r\nContent-Length: 11\r\n\r\nHello World"));
+                //URL
+                string page = "";
+                Console.WriteLine(url);
+                if(url.Contains("/")){
+                    page = File.ReadAllText("Home.html");
+                }
+                Console.WriteLine(page);
+                connectie.Send(System.Text.Encoding.ASCII.GetBytes("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: 11\r\n\r\n"+page));            
             }
         }
     }
