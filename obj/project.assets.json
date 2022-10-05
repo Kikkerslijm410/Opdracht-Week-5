@@ -8,24 +8,26 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Lucas Clavel\\.nuget\\packages\\": {}
+    "C:\\Users\\Wouter\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\School\\Projecten\\Opdracht-Week-5\\Opdracht-Week-5.csproj",
+      "projectUniqueName": "d:\\Coding\\Projects\\School\\SE2\\WPFW\\Lucas\\Opdracht-Week-5\\Opdracht-Week-5.csproj",
       "projectName": "Opdracht-Week-5",
-      "projectPath": "C:\\School\\Projecten\\Opdracht-Week-5\\Opdracht-Week-5.csproj",
-      "packagesPath": "C:\\Users\\Lucas Clavel\\.nuget\\packages\\",
-      "outputPath": "C:\\School\\Projecten\\Opdracht-Week-5\\obj\\",
+      "projectPath": "d:\\Coding\\Projects\\School\\SE2\\WPFW\\Lucas\\Opdracht-Week-5\\Opdracht-Week-5.csproj",
+      "packagesPath": "C:\\Users\\Wouter\\.nuget\\packages\\",
+      "outputPath": "d:\\Coding\\Projects\\School\\SE2\\WPFW\\Lucas\\Opdracht-Week-5\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Lucas Clavel\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Wouter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

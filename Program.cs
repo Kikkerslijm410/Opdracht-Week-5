@@ -36,7 +36,7 @@ namespace Pretpark
                     page = File.ReadAllText("Home.html");
                 }
                 Console.WriteLine(page);
-                connectie.Send(System.Text.Encoding.ASCII.GetBytes("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\nContent-Length: 11\r\n\r\n"+page));            
+                connectie.Send(System.Text.Encoding.ASCII.GetBytes("HTTP/1.0 200 OK\r\nContent-Type: text/html\r\nContent-Length: 11\r\n\r\n"+page));            
             }
         }
     }
