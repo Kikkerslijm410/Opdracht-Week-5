@@ -53,7 +53,7 @@ namespace Pretpark
         }
     }
 
-    // a bit excessive
+    // a bit excessive but whatever
     public class Teller{
         public int i;
         public Teller (){
