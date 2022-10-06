@@ -40,7 +40,7 @@ namespace Pretpark
                 }else if (url.Contains("/Teller")){
                     page = "<h1>" + counter + "</h1>";
                     counter.i++;
-                }else if (url.Contains("/add")){
+                }else if (url.Contains("/add?")){
                     page = File.ReadAllText("HTML\\add.html");
                 }else if (url.Contains("/mijnteller")){
                     page = File.ReadAllText("HTML\\mijnteller.html");
@@ -53,6 +53,7 @@ namespace Pretpark
         }
     }
 
+    // a bit excessive
     public class Teller{
         public int i;
         public Teller (){

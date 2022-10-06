@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>Oeps</h1>
+        <h1 id="totaal">Als je dit leest gaat er iets niet helemaal goed</h1>
+        <script>
+            window.onload = Totaal();
+            function Totaal(){
+                var a = new URLSearchParams(window.location.href);
+                let totaal = 0;
+                for (var b of a.entries()){
+                    totaal += parseInt(b[1]);
+                }
+                console.log(totaal);
+                document.getElementById("totaal").innerHTML = totaal;
+            } 
+        </script>
     </body>
 </html>
 
