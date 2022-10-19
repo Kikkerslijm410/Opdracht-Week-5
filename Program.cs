@@ -6,6 +6,10 @@ namespace Pretpark
     {
         static void Main(string[] args)
         {
+            // Create a new instance of the server
+            // and start it
+            // The server will listen on port 5000
+            // and will use the default IP address
             TcpListener server = new TcpListener(new System.Net.IPAddress(new byte[] { 127,0,0,1 }), 5000);
             server.Start();
             while(true){
@@ -29,7 +33,7 @@ namespace Pretpark
                     char[] bytes = new char[(int)contentLength];
                     requestLezer.Read(bytes, 0, (int)contentLength);
                 }
-                //URL
+                //URL switch
                 string page = "";
                 Teller counter = new Teller();
                 Console.WriteLine(url);
@@ -53,7 +57,7 @@ namespace Pretpark
         }
     }
 
-    // a bit excessive but whatever
+    // A bit excessive but whatever
     public class Teller{
         public int i;
         public Teller (){
