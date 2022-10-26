@@ -13,27 +13,32 @@ namespace Pretpark
             TcpListener server = new TcpListener(new System.Net.IPAddress(new byte[] { 127,0,0,1 }), 5000);
             server.Start();
             while(true){
+                //hier worden alle systemen gestart en verwerkt
                 using Socket connectie = server.AcceptSocket();
-                    Console.WriteLine(connectie);
+                    Console.WriteLine("1) " + connectie);
                 using Stream request = new NetworkStream(connectie);
-                    Console.WriteLine(request);
+                    Console.WriteLine("2) " + request);
                 using StreamReader requestLezer = new StreamReader(request);
-                    Console.WriteLine(requestLezer);
+                    Console.WriteLine("3) " + requestLezer);
                 string[]? regel1 = requestLezer.ReadLine()?.Split(" ");
-                    Console.WriteLine(regel1);
+                    Console.WriteLine("4) " + regel1);
                 if (regel1 == null) return;
+
+                //methode om te kijken wat de request is
+                //url hier komt de url uit de request
+                //versie is de versie van de request
                 (string methode, string url, string httpversie) = (regel1[0], regel1[1], regel1[2]);
                 string? regel = requestLezer.ReadLine();
-                    Console.WriteLine(methode);
-                    Console.WriteLine(url);
-                    Console.WriteLine(httpversie);
+                    Console.WriteLine("5) " + methode);
+                    Console.WriteLine("6) " + url);
+                    Console.WriteLine("7) " + httpversie);
                 int contentLength = 0;
                 while (!string.IsNullOrEmpty(regel) && !requestLezer.EndOfStream)
                 {
                     string[] stukjes = regel.Split(":");
                     (string header, string waarde) = (stukjes[0], stukjes[1]);
-                        Console.WriteLine(header);
-                        Console.WriteLine(waarde);
+                        Console.WriteLine("8) " + header);
+                        Console.WriteLine("9) " + waarde);
                     if (header.ToLower() == "content-length")
                         contentLength = int.Parse(waarde);
                     regel = requestLezer.ReadLine();
