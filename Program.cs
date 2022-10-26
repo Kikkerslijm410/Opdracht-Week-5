@@ -14,17 +14,26 @@ namespace Pretpark
             server.Start();
             while(true){
                 using Socket connectie = server.AcceptSocket();
+                    Console.WriteLine(connectie);
                 using Stream request = new NetworkStream(connectie);
+                    Console.WriteLine(request);
                 using StreamReader requestLezer = new StreamReader(request);
+                    Console.WriteLine(requestLezer);
                 string[]? regel1 = requestLezer.ReadLine()?.Split(" ");
+                    Console.WriteLine(regel1);
                 if (regel1 == null) return;
                 (string methode, string url, string httpversie) = (regel1[0], regel1[1], regel1[2]);
                 string? regel = requestLezer.ReadLine();
+                    Console.WriteLine(methode);
+                    Console.WriteLine(url);
+                    Console.WriteLine(httpversie);
                 int contentLength = 0;
                 while (!string.IsNullOrEmpty(regel) && !requestLezer.EndOfStream)
                 {
                     string[] stukjes = regel.Split(":");
                     (string header, string waarde) = (stukjes[0], stukjes[1]);
+                        Console.WriteLine(header);
+                        Console.WriteLine(waarde);
                     if (header.ToLower() == "content-length")
                         contentLength = int.Parse(waarde);
                     regel = requestLezer.ReadLine();
